@@ -1,0 +1,1 @@
+For the best experience use Firefox or IE. 

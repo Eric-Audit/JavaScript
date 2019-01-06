@@ -1,0 +1,112 @@
+<!--
+Eric Audit
+F18 COP2822.0M1
+10/1/2018
+Mod 4 - gregs encoder!
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<head>
+<title>Greg's Gambits | Unbreakable Secret Message Encoder</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function encodeIt()
+{
+    num = (Math.floor(Math.random() * 10)) + 1;
+    document.getElementById("message").innerHTML = ("<h2>&nbsp;</h2>");
+    var msg = prompt("Enter your message." , " "); 
+    var newmsg = " ";
+    var upCaseCode = 155;
+    var newCode = 0;
+    var lowCaseCode = 219;
+    var specialCode = 3;
+    var crazyCode = 6;
+    var special = false;
+    var crazy = false;
+    for (var j = 0; j < msg.length; j++) 
+    {
+        if ((msg.charCodeAt(j)>=65) && (msg.charCodeAt(j)<=90)) 
+        {
+            newCode = (upCaseCode - msg.charCodeAt(j) - num);
+            if(newCode > 126)
+                newCode = (newCode - num - num);
+            else if(newCode < 33)
+                newCode += (num + num);
+        }    
+        else if ((msg.charCodeAt(j)>=97) && (msg.charCodeAt(j)<=122))            
+        {
+            newCode = (lowCaseCode - msg.charCodeAt(j) - num);
+            if(newCode > 126)
+                newCode = (newCode - num - num);
+            else if(newCode < 33)
+                newCode += (num + num);
+        }
+        else if (((msg.charCodeAt(j)>90) && (msg.charCodeAt(j)<97)) || (msg.charCodeAt(j)<65))
+        {
+            var special = true;
+            newCode = (msg.charCodeAt(j) + specialCode - num);
+            if(newCode > 126)
+                newCode = (newCode - num - num);
+            else if(newCode < 33)
+                newCode += (num + num);
+        }
+        else if (msg.charCodeAt(j)>=123)
+        {
+            var crazy = true;
+            newCode = (msg.charCodeAt(j) - crazyCode - num);
+            if(newCode > 126)
+                newCode = (newCode - num - num);
+            else if(newCode < 33)
+                newCode += (num + num);  
+        }
+    newmsg = newmsg + " " + String.fromCharCode(newCode);
+    }
+    document.getElementById("secret").innerHTML = ("<h2>" + newmsg + "</h2>");
+    var choice = prompt("Do you want the secret number displayed? Yes or No?", " ");
+    if ((choice.charAt(0) == 'y') || (choice.charAt(0) == 'Y'))
+    {
+        if((special == true) && (crazy == true))
+        {
+            document.getElementById("message").innerHTML = ("</h2>" + "The secret number this time is " + num + " but your characters were moved either up or down between " + num + " and " + (Math.abs(num-3)) + " on the ASCII table because of the 'special' and 'crazy' modifiers. To generate " + num + " for the secret number, I used the following algorithm: num = (Math.floor(Math.random() * 10)) + 1." + " Minus 3 for the 'special' and 'crazy' modifiers!" + "</h2>");
+        }
+        else if((special == true) && (crazy == false))
+        {
+            document.getElementById("message").innerHTML = ("</h2>" + "The secret number this time is " + num + " but your characters were moved either up or down between " + num + " and " + (Math.abs(num+3)) + " on the ASCII table because of the 'special' modifier. To generate " + num + " for the secret number, I used the following algorithm: num = (Math.floor(Math.random() * 10)) + 1." + " Plus 3 for the 'special' modifier!" + "</h2>");
+        }
+        else if((special == false) && (crazy == true))
+        {
+            document.getElementById("message").innerHTML = ("</h2>" + "The secret number this time is " + num + " but your characters were moved either up or down between " + num + " and " + (Math.abs(num-6)) + " on the ASCII table because of the 'crazy' modifier. To generate " + num + " for the secret number, I used the following algorithm: num = (Math.floor(Math.random() * 10)) + 1." + " Minus 6 for the 'crazy' modifier!" + "</h2>");
+        }
+        else
+        {
+            document.getElementById("message").innerHTML = ("</h2>" + "The secret number this time is " + num + " your characters were moved either up or down " + (num) + " on the ASCII table. To generate " + num + " for the secret number, I used the following algorithm: num = (Math.floor(Math.random() * 10)) + 1." + "</h2>");
+        }
+    }
+}
+</script>
+</head>
+<body>
+<div id="container">
+ <img src="images/superhero.jpg" width="120" height="120" class="floatleft" />
+ <h1 id="logo"><em>Unbreakable Secret Message Encoder</em></h1>
+ <p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+</div>
+<div id="content">
+	 <h2>Write A Message and Encode It</h2>
+<p><input type="button" id="encode" value="Enter your message" onclick="encodeIt();" /></p>
+  <table cellpadding="2" width = "90%" align = "center" border="1">
+    <tr> <td align="center" id="secret"><p>encoded message</p></td> </tr> 
+	<tr> <td align="center" id="message">&nbsp;</td></tr></table>
+</div>
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br/>
+<a href="mailto:fakemail@email.com">fakeemail@email.com</a>
+</div>
+</div>
+</body>
+</html>

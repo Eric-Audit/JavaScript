@@ -1,0 +1,177 @@
+<!--
+Eric Audit
+F18 COP2822.0M1
+10/9/2018
+Mod 5 - Game of 21!
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>Greg's Gambits | Game of 21</title>
+	<link href="greg.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type ="text/javascript">
+function gameOf21()
+    {  
+        var playerPlay = 0; //user choice.
+        var playerPts = 0; //value for a hand.
+        var dealerPts = 0;
+        var playerTotal = 0; //value for overall score.
+        var dealerTotal = 0;
+        var hit = 0; //value for added card.
+        document.getElementById("player").textContent = ("Your hand: " + playerPts);
+        document.getElementById("playerTotal").textContent = ("Your score: " + playerTotal);
+        document.getElementById("dealerTotal").textContent = ("The dealer's score: " + dealerTotal);
+        document.getElementById("winner").textContent = ("&nbsp;"); 
+        // loop repeats until player stops or busts
+        while((playerTotal < 199) && (dealerTotal < 199)) //loop to keep game going until the house or player hit 200.
+           { 
+               document.getElementById("playerTotal").textContent = ("Your score: " + playerTotal); //refresh the gamescore
+               document.getElementById("dealerTotal").textContent = ("The dealer's score: " + dealerTotal);
+               playerPts = ((Math.floor(Math.random() * 11) + 1) + (Math.floor(Math.random() * 11) + 1)); //get a new hand.
+               dealerPts = ((Math.floor(Math.random() * 11) + 1) + (Math.floor(Math.random() * 11) + 1));
+               alert("your hand is " + playerPts);
+               if(playerPts > 21 && dealerPts < 21) //since 22 is possible on a draw i added the following code.
+                   {
+                       alert("You Bust on the draw!");
+                       dealerTotal = dealerTotal + dealerPts;
+                   }
+               if(dealerPts > 21 && playerPts <21)
+                   {
+                       alert("the dealer Bust on the draw!");
+                       playerTotal = playerTotal + playerPts;
+                   }
+               if(dealerPts > 21 && playerPts > 21)
+                    {
+                        alert("you both bust on the draw!!!!");
+                    }
+               playerPlay = parseInt(prompt("What would you like to do? Enter 1 to hit, 2 to hold: (Enter 3 to leave the game at any time)" , " ")) //user prompt
+               if(playerPlay == 1)
+                    {
+                                hit = (Math.floor(Math.random() * 10) + 1);
+                                playerPts = playerPts + hit;
+                                document.getElementById("player").textContent = ("You're dealt a " + hit + " your score is now: " + playerPts);
+                                document.getElementById("dealer").textContent = ("The dealer's hand is: " + dealerPts);
+                                if(playerPts > 21) //code for a bust.
+                                    {
+                                        document.getElementById("winner").textContent = ("You Bust!");
+                                        dealerTotal = dealerTotal + dealerPts;
+                                    }
+                                else if (playerPts > dealerPts) //if player doesn't bust and is higher.
+                                    {
+                                        playerTotal = playerTotal + playerPts;
+                                        document.getElementById("winner").textContent = ("Player wins!");
+                                    }
+                                else if (dealerPts > playerPts) //doesn't bust and is lower.
+                                    {
+                                        dealerTotal = dealerTotal + dealerPts;
+                                        document.getElementById("winner").textContent = ("House wins!");
+                                    }
+                                else if(playerPts == dealerPts) //a tie.
+                                    {
+                                        document.getElementById("winner").textContent = ("Tie!");
+                                    }
+                    }
+                else if(playerPlay == 2) //code for a hold
+                    {
+                        document.getElementById("player").textContent = ("Your current hand is: " + playerPts); //show the hands
+                        document.getElementById("dealer").textContent = ("The dealer's hand is: " + dealerPts);
+                        if(playerPts < dealerPts)
+                            {
+                                document.getElementById("winner").textContent = ("House wins!");
+                                dealerTotal = dealerTotal + dealerPts; //update the global score
+                            }
+                        else if(playerPts > dealerPts)
+                            {
+                                document.getElementById("winner").textContent = ("Player wins!");
+                                playerTotal = playerTotal + playerPts;
+                            }
+                        else if(playerPts == dealerPts)
+                            {
+                                document.getElementById("winner").textContent = ("Tie!");
+                            }
+                    }
+                else if (playerPlay == 3)
+                {
+                    playerTotal = 200; //if you give up you don't win or lose.
+                    dealerTotal = 200;
+                    break;
+                }
+           }
+        if(playerTotal > dealerTotal)
+        {
+            document.getElementById("winner").textContent = ("The game is over, the player wins!");
+            document.getElementById("playerTotal").textContent = ("Your score: " + playerTotal);
+            document.getElementById("dealerTotal").textContent = ("The dealer's score: " + dealerTotal);
+        }
+        if(playerTotal < dealerTotal)
+        {
+            document.getElementById("winner").textContent = ("The game is over, the house wins!");
+            document.getElementById("playerTotal").textContent = ("Your score: " + playerTotal);
+            document.getElementById("dealerTotal").textContent = ("The dealer's score: " + dealerTotal);
+        }
+        if(playerTotal == dealerTotal)
+        {
+            document.getElementById("winner").textContent = ("The game is over, no one won");
+            document.getElementById("playerTotal").textContent = ("Your score: " + playerTotal);
+            document.getElementById("dealerTotal").textContent = ("The dealer's score: " + dealerTotal);
+        }
+    }
+     function gameOf22()
+    {  
+        var x = 5;
+ if(x == 4)
+ document.write("Math is fun!");
+ else
+ document.write("Wrong! <br />");
+ document.write("Math is not fun!"); 
+    }
+</script>
+<style type="text/css"> 
+<!--
+.style1{font-size: 18px}
+--> 
+</style>
+</head>
+
+<body>
+<div id="container">
+ <img src="images/superhero.jpg" width="120" height="120" class="floatleft" />
+ <h1 align="center"><em>Game of 21</em></h1>
+
+<div style ="clear:both;"></div>  
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+</div>
+<div id="content">
+  <table width = "85%" cellpadding="5" cellspacing="0" border = "0">
+  <tr><td colspan = 4><span class="style1">In this game, each player begins with a score of 0. The computer will generate two random numbers between 2 and 11 for the player 
+      (the player’s cards) and two for the computer (the dealer’s cards). An ace has the value of 11; therefore there is no 1. 
+      Face cards (Jack, Queen, King) all have the value of 10. </span></td></tr>
+      <tr><td width = 20%><p><img src="images/wizard.jpg" width="120" height="168"></p>
+    <p> <span class="style1">Player</span></p></td>
+    <td width=20%><p><img src="images/carla_pic.jpg" width="120" height="168"></p>
+    <p><span class="style1">Dealer</span></p></td>
+    <tr><td><span id="player" class="style1">Player: </span></td> 
+    <td><span id="dealer" class="style1">Dealer: </span></td></tr>
+    <td colspan = 2 width = 10%>&nbsp;</td>
+    <tr><td colspan = 2><span class = "style1">The winner is:</span></td></tr>
+    <tr><td colspan = 2 id = "winner" align = "center" class = "style1">&nbsp;</td></tr>
+    <tr><td><span id="playerTotal" class = "style1">Player points: </span></td> 
+        <td><span id="dealerTotal" class = "style1">Dealer points:</span></td></tr>
+    <tr><td colspan = 4><span class="style1">Note: <br />
+        21 is the best score, go over and you bust. <br />
+        A "hit" will deal you another card. <br />
+        to "Hold" means you're ready to compare hands with the dealer.</span></td></tr>
+    </table>
+<input type="button" id="battle" value="Lets Play!" onclick="gameOf22()"; />
+ </div>
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br />
+<a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
+</div>
+</div>
+</body>
+</html>

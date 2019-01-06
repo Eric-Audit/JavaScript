@@ -1,0 +1,195 @@
+<!--
+Eric Audit
+F18 COP2822.0M1
+10/23/2018
+Mod 6 - tic tac toe!
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Greg's Gambits | Tic Tac Toe</title>
+<link href="greg.css" rel="stylesheet" type="text/css"  />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script>
+    
+function CheckForWinner()
+    { 
+        // Set my variables to 'x' or 'o' when the function loads.
+        var one = document.getElementById(1).value; var two = document.getElementById(2).value; var three = document.getElementById(3).value;
+        var four = document.getElementById(4).value; var five = document.getElementById(5).value; var six = document.getElementById(6).value;
+        var seven = document.getElementById(7).value; var eight = document.getElementById(8).value; var nine = document.getElementById(9).value;
+
+        // 'X' win conditions
+        if(((one.charCodeAt(0) == 88)||(one.charCodeAt(0) == 120)) && ((two.charCodeAt(0) == 88)||(two.charCodeAt(0) == 120)) && ((three.charCodeAt(0) == 88)||(three.charCodeAt(0) == 120)))
+            {
+                alert("Player 'X' has won!");
+                    
+            }
+        else if(((four.charCodeAt(0) == 88)||(four.charCodeAt(0) == 120)) && ((five.charCodeAt(0) == 88)||(five.charCodeAt(0) == 120)) && ((six.charCodeAt(0) == 88)||(six.charCodeAt(0) == 120)))
+            {
+                alert("Player 'X' has won!");
+                    
+            }
+        else if(((seven.charCodeAt(0) == 88)||(seven.charCodeAt(0) == 120)) && ((eight.charCodeAt(0) == 88)||(eight.charCodeAt(0) == 120)) && ((nine.charCodeAt(0) == 88)||(nine.charCodeAt(0) == 120)))
+            {
+                alert("Player 'X' has won!");
+                     
+            }
+        else if(((one.charCodeAt(0) == 88)||(one.charCodeAt(0) == 120)) && ((four.charCodeAt(0) == 88)||(four.charCodeAt(0) == 120)) && ((seven.charCodeAt(0) == 88)||(seven.charCodeAt(0) == 120)))
+            {
+                alert("Player 'X' has won!");
+                     
+            }
+        else if(((two.charCodeAt(0) == 88)||(two.charCodeAt(0) == 120)) && ((five.charCodeAt(0) == 88)||(five.charCodeAt(0) == 120)) && ((eight.charCodeAt(0) == 88)||(eight.charCodeAt(0) == 120)))
+            {
+                alert("Player 'X' has won!");
+                     
+            }
+        else if(((three.charCodeAt(0) == 88)||(three.charCodeAt(0) == 120)) && ((six.charCodeAt(0) == 88)||(six.charCodeAt(0) == 120)) && ((nine.charCodeAt(0) == 88)||(nine.charCodeAt(0) == 120)))
+            {
+                alert("Player 'X' has won!");
+                     
+            }
+        else if(((one.charCodeAt(0) == 88)||(one.charCodeAt(0) == 120)) && ((five.charCodeAt(0) == 88)||(five.charCodeAt(0) == 120)) && ((nine.charCodeAt(0) == 88)||(nine.charCodeAt(0) == 120)))
+            {
+                alert("Player 'X' has won!");
+                     
+            }
+        else if(((three.charCodeAt(0) == 88)||(three.charCodeAt(0) == 120)) && ((five.charCodeAt(0) == 88)||(five.charCodeAt(0) == 120)) && ((seven.charCodeAt(0) == 88)||(seven.charCodeAt(0) == 120)))
+            {
+                alert("Player 'X' has won!");
+                     
+            }
+        // 'O' win conditions
+        else if(((one.charCodeAt(0) == 79)||(one.charCodeAt(0) == 111)) && ((two.charCodeAt(0) == 79)||(two.charCodeAt(0) == 111)) && ((three.charCodeAt(0) == 79)||(three.charCodeAt(0) == 111)))
+            {
+                alert("Player 'O' has won!");
+                     
+            }
+        else if(((four.charCodeAt(0) == 79)||(four.charCodeAt(0) == 111)) && ((five.charCodeAt(0) == 79)||(five.charCodeAt(0) == 111)) && ((six.charCodeAt(0) == 79)||(six.charCodeAt(0) == 111)))
+            {
+                alert("Player 'O' has won!");
+                     
+            }
+        else if(((seven.charCodeAt(0) == 79)||(seven.charCodeAt(0) == 111)) && ((eight.charCodeAt(0) == 79)||(eight.charCodeAt(0) == 111)) && ((nine.charCodeAt(0) == 79)||(nine.charCodeAt(0) == 111)))
+            {
+                alert("Player 'O' has won!");
+                     
+            }
+        else if(((one.charCodeAt(0) == 79)||(one.charCodeAt(0) == 111)) && ((four.charCodeAt(0) == 79)||(four.charCodeAt(0) == 111)) && ((seven.charCodeAt(0) == 79)||(seven.charCodeAt(0) == 111)))
+            {
+                alert("Player 'O' has won!");
+                     
+            }
+        else if(((two.charCodeAt(0) == 79)||(two.charCodeAt(0) == 111)) && ((five.charCodeAt(0) == 79)||(five.charCodeAt(0) == 111)) && ((eight.charCodeAt(0) == 79)||(eight.charCodeAt(0) == 111)))
+            {
+                alert("Player 'O' has won!");
+                    
+            }
+        else if(((three.charCodeAt(0) == 79)||(three.charCodeAt(0) == 111)) && ((six.charCodeAt(0) == 79)||(six.charCodeAt(0) == 111)) && ((nine.charCodeAt(0) == 79)||(nine.charCodeAt(0) == 111)))
+            {
+                alert("Player 'O' has won!");
+                     
+            }
+        else if(((one.charCodeAt(0) == 79)||(one.charCodeAt(0) == 111)) && ((five.charCodeAt(0) == 79)||(five.charCodeAt(0) == 111)) && ((nine.charCodeAt(0) == 79)||(nine.charCodeAt(0) == 111)))
+            {
+                alert("Player 'O' has won!");
+                   
+            }
+        else if(((three.charCodeAt(0) == 79)||(three.charCodeAt(0) == 111)) && ((five.charCodeAt(0) == 79)||(five.charCodeAt(0) == 111)) && ((seven.charCodeAt(0) == 79)||(seven.charCodeAt(0) == 111)))
+            {
+                alert("Player 'O' has won!");    
+            }
+        else if((one != "") && (two != "") && (three != "") && (four != "") && (five != "") && (six != "") && (seven != "") && (eight != "") && (nine != ""))
+            {
+                alert("it's a tie!");
+            }
+    }
+
+function setColorAndDisable(x)
+    {
+        var box = document.getElementById(x).value; // get an 'X' or 'O'.
+        if(box.charCodeAt(0) == 88 || box.charCodeAt(0) == 120)
+        {
+            //set x to yellow, disable the text field, and check for a winner.
+            document.getElementById(x).style.background="yellow";
+            document.getElementById(x).disabled = true;
+            CheckForWinner()
+        }
+        else if(box.charCodeAt(0) == 79 || box.charCodeAt(0) == 111)
+        {
+            //set o to orange, disable the text field, and check for a winner.
+            document.getElementById(x).style.background="orange"; 
+            document.getElementById(x).disabled = true;
+            CheckForWinner()
+        }
+    }
+function doAReset()
+    {
+        for(var b =1; b<10 ;b++)
+            {
+                //reset the game.
+                document.getElementById(b).style.background="white";
+                document.getElementById(b).disabled = false;
+                document.getElementById(b).value = "";
+            } 
+    }
+</script>   
+</head>
+<body>
+    <!--basic body using the same template --> 
+<div id="container">  
+<img src="images/superhero.jpg" class="floatleft" />
+<h1 align="center"><em>Tic Tac Toe</em></h1>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a> 
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+</div>
+<div id="content">
+<h2>Tic Tac Toe</h2> 
+<div style="width: 100%;"> 
+<div><form name = "Tic Tac Toe"><fieldset> <!--basic form with a few tables to organize the text fields.-->
+    <p>This Game is for two players. One player is yellow (X), the other is orange(O). The goal is to get three boxes in a row(across, down, or diagonally).
+        When you enter your letter into a box and click OK, the box will change to your color. The game ends either when one player wins or there is a tie.</p> 
+    <table width = "80%" align = "center">  
+    <tr><td colspan = "3" class="nobdr"></td></tr> <!--set to three columns.-->
+    <td class="nobdr"><input type="text" id="1" size = "5" maxlength = 1 value = "" style="text-align: center"/>
+    <input type ="image" onclick="setColorAndDisable(1);return false;" src = "images/ok.gif" height = 20px border="0" style='vertical-align: bottom' alt="Submit"></td> 
+    <td class="nobdr"><input type="text" id="2" size = "5" maxlength = 1 value = "" style="text-align: center"/>
+    <!--My images needed to return false or they would refresh the page. I included some vertical alignment and height properties so they matched the text field.-->
+    <!--Additionally my text fields are set to a max length of 1 for input control.-->
+    <!--I pass the ID to my function so it can easily set the correct color and disbale the field.-->
+    <input type ="image" onclick="setColorAndDisable(2);return false;" src = "images/ok.gif" height = 20px border="0" style='vertical-align: bottom' alt="Submit"></td>
+    <td class="nobdr"><input type="text" id="3" size = "5" maxlength = 1 value = "" style="text-align: center"/>
+    <input type ="image" onclick="setColorAndDisable(3);return false;" src = "images/ok.gif" height = 20px border="0" style='vertical-align: bottom' alt="Submit"></td>
+    </table>
+    <table width = "80%" align = "center">
+    <td class="nobdr"><input type="text" id="4" size = "5" maxlength = 1 value = "" style="text-align: center"/>
+    <input type ="image" onclick="setColorAndDisable(4);return false;" src = "images/ok.gif" height = 20px border="0" style='vertical-align: bottom' alt="Submit"></td>
+    <td class="nobdr"><input type="text" id="5" size = "5" maxlength = 1 value = "" style="text-align: center"/>
+    <input type ="image" onclick="setColorAndDisable(5);return false;" src = "images/ok.gif" height = 20px border="0" style='vertical-align: bottom' alt="Submit"></td>
+    <td class="nobdr"><input type="text" id="6" size = "5" maxlength = 1 value = "" style="text-align: center"/>
+    <input type ="image" onclick="setColorAndDisable(6);return false;" src = "images/ok.gif" height = 20px border="0" style='vertical-align: bottom' alt="Submit"></td>
+    </table>
+    <table width = "80%" align = "center">
+    <td class="nobdr"><input type="text" id="7" size = "5" maxlength = 1 value = "" style="text-align: center"/>
+    <input type ="image" onclick="setColorAndDisable(7);return false;" src = "images/ok.gif" height = 20px border="0" style='vertical-align: bottom' alt="Submit"></td>
+    <td class="nobdr"><input type="text" id="8" size = "5" maxlength = 1 value = "" style="text-align: center"/>
+    <input type ="image" onclick="setColorAndDisable(8);return false;" src = "images/ok.gif" height = 20px border="0" style='vertical-align: bottom' alt="Submit"></td>
+    <td class="nobdr"><input type="text" id="9" size = "5" maxlength = 1 value = "" style="text-align: center"/>
+    <input type ="image" onclick="setColorAndDisable(9);return false;" src = "images/ok.gif" height = 20px border="0" style='vertical-align: bottom' alt="Submit"></td>
+    </table></fieldset>
+    <div> <br /><input type="button" value="Reset and play again" onclick="doAReset()"><br /></div></form>
+    <!-- reset button -->
+</div></div></div>
+<div style="clear:both;"></div>
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br />
+<a href="mailto:fakeemail@fakeemil.com">fakeemail@email.com</a></div>
+
+
+</div>
+</body>
+</html>

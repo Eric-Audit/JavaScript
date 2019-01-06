@@ -1,0 +1,226 @@
+<!--
+Eric Audit
+F18 COP2822.0M1
+11/6/2018
+Mod 8 - Pitfall!
+-->
+<html>
+<head>
+<title>Greg's Gambits | Greg's Maze</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+<script type = "text/javascript">
+function doClick(row, col)
+	{   
+    var cells = new Array(4);
+    cells[0]= new Array(4);
+    cells[1]= new Array(4);
+    cells[2]= new Array(4);
+    cells[3]= new Array(4);
+    cells[0][0] = new Image();
+    cells[0][1] = new Image();
+    cells[0][2] = new Image();
+    cells[0][3] = new Image();
+    cells[0][3].value = "pifall";
+    cells[1][0] = new Image();
+    cells[1][1] = new Image();
+    cells[1][2] = new Image();
+    cells[1][2].value = "pifall";
+    cells[1][3] = new Image();
+    cells[2][0] = new Image();
+    cells[2][1] = new Image();
+    cells[2][2] = new Image();
+    cells[2][3] = new Image();
+    cells[3][0] = new Image();
+    cells[3][1] = new Image();
+    cells[3][1].value = "pifall";
+    cells[3][2] = new Image();
+    cells[3][3] = new Image();
+    cells[0][0].src =document.getElementById(0+''+0).src;
+    cells[0][1].src =document.getElementById(0+''+1).src;
+    cells[0][2].src =document.getElementById(0+''+2).src;
+    cells[0][3].src =document.getElementById(0+''+3).src;
+    cells[1][0].src =document.getElementById(1+''+0).src;
+    cells[1][1].src =document.getElementById(1+''+1).src;
+    cells[1][2].src =document.getElementById(1+''+2).src;
+    cells[1][3].src =document.getElementById(1+''+3).src;
+    cells[2][0].src =document.getElementById(2+''+0).src;
+    cells[2][1].src =document.getElementById(2+''+1).src;
+    cells[2][2].src =document.getElementById(2+''+2).src;
+    cells[2][3].src =document.getElementById(2+''+3).src;
+    cells[3][0].src =document.getElementById(3+''+0).src;
+    cells[3][1].src =document.getElementById(3+''+1).src;
+    cells[3][2].src =document.getElementById(3+''+2).src;
+    cells[3][3].src =document.getElementById(3+''+3).src;
+    var top = row - 1; 
+    var bottom = row + 1; 
+    var left = col - 1; 
+    var right = col + 1; 
+    if((top != -1) && (document.getElementById(top+''+col).src.indexOf("images/superhero.jpg") != -1))
+    {
+        if((row == 0 && col == 3) || (row == 1 && col == 2) || (row == 3 && col == 1))
+            {
+                alert("you fell in a pitfall!");
+            }
+        else
+        {
+            var temp = cells[top][col].src;
+            document.getElementById(top+''+col).src = cells[row][col].src;
+            document.getElementById(row+''+col).src = temp;
+        }
+    }
+        
+    else if((right != 4) && (document.getElementById(row+''+right).src.indexOf("images/superhero.jpg") != -1))
+    {
+        if((row == 0 && col == 3) || (row == 1 && col == 2) || (row == 3 && col == 1))
+            {
+                alert("you fell in a pitfall!");
+            }
+        else
+            {
+                var temp = cells[row][right].src;
+                document.getElementById(row+''+right).src = cells[row][col].src;
+                document.getElementById(row+''+col).src = temp;
+            }
+    }
+    else if((bottom != 4) && (document.getElementById(bottom+''+col).src.indexOf("images/superhero.jpg") != -1))
+    {
+         if((row == 0 && col == 3) || (row == 1 && col == 2) || (row == 3 && col == 1))
+            {
+                alert("you fell in a pitfall!");
+            }
+         else
+            { 
+            var temp = cells[bottom][col].src;
+            document.getElementById(bottom+''+col).src = cells[row][col].src;
+            document.getElementById(row+''+col).src = temp;
+            }
+    }
+    else if ((left != -1) && (document.getElementById(row+''+left).src.indexOf("images/superhero.jpg") != -1))
+    {
+        if((row == 0 && col == 3) || (row == 1 && col == 2) || (row == 3 && col == 1))
+            {
+                alert("you fell in a pitfall!");
+            }
+         else
+            {
+             var temp = cells[row][col].src;
+            document.getElementById(row+''+col).src = cells[row][left].src;
+            document.getElementById(row+''+left).src = temp;
+            }
+    }
+    else 
+    {alert("Illegal move.");}
+    checkWinner();
+	}
+function swap(firstCell, secondCell)
+	{
+	// create function to swap values
+        alert("in swap");
+        temp = secondCell.src;
+        secondCell.src = firstCell.src; 
+        firstCell.src = temp;
+
+	}
+function start()
+    {
+        for (var row =0; row <4; row++)
+            for(var col = 0; col <4; col++)
+                if(row == 0 && col == 0)
+                {
+                    document.getElementById(row+''+col).src="images/superhero.jpg";
+                }
+                else if(row == 3 && col ==3)
+                {
+                    document.getElementById(row+''+col).src="images/jewel_box1.jpg";
+                }
+                else
+                {
+                    document.getElementById(row+''+col).src="images/ring1.jpg"
+                }
+    }
+function checkWinner()
+	{
+        if(document.getElementById(33).src.indexOf("images/superhero.jpg") != -1)
+        {
+            alert("Congratulations! You won!"); 
+            if (window.prompt("Play again?", "yes"))
+            start();
+        } 
+    }
+</script>
+</head>
+<body >
+<div id="container">
+<img src="images/superhero.jpg" class="floatleft" />
+<h1 id="logo"><em>Greg's Maze</em></h1>
+<p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+</div>
+<div id="content">
+<p>You can move the hero into any spot by moving up, down,right, or left. Diagonal moves are not allowed. The objective is to get to the treasure chest without falling in a pitfall. Good luck. </p>
+<table width = "60%" align = "center">
+<tr><td height = "60">
+<img src="images/superhero.jpg" onclick = "doClick(0, 0);" id = '00'>&nbsp;</td>
+<td><img src="images/ring1.jpg" onclick = "doClick(0, 1);" id = '01'>&nbsp;</td> 
+<td><img src="images/ring1.jpg" onclick = "doClick(0, 2);" id = '02'>&nbsp;</td> 
+<td><img src="images/ring1.jpg" onclick = "doClick(0, 3);" id = '03'>&nbsp;</td>
+</tr> 
+<tr>
+<td height = "60">
+<img src="images/ring1.jpg" onclick = "doClick(1, 0)" id = '10'>&nbsp;</td>
+<td><img src="images/ring1.jpg" onclick = "doClick(1, 1)" id = '11'>&nbsp;</td>
+<td><img src="images/ring1.jpg" onclick = "doClick(1, 2)" id = '12'>&nbsp;</td> 
+<td><img src="images/ring1.jpg" onclick = "doClick(1, 3)" id = '13'>&nbsp;</td> 
+</tr> 
+<tr>
+<td height = "60">
+<img src="images/ring1.jpg" onclick = "doClick(2, 0)" id = '20'>&nbsp;</td>
+<td><img src="images/ring1.jpg" onclick = "doClick(2, 1)" id = '21'>&nbsp;</td> 
+<td><img src="images/ring1.jpg" onclick = "doClick(2, 2)" id = '22'>&nbsp;</td>
+<td><img src="images/ring1.jpg" onclick = "doClick(2, 3)" id = '23'>&nbsp;</td> 
+</tr> 
+<tr>
+<td height = "60">
+<img src="images/ring1.jpg" onclick = "doClick(3, 0)" id = '30'>&nbsp;</td>
+<td><img src="images/ring1.jpg" onclick = "doClick(3, 1)" id = '31'>&nbsp;</td> 
+<td><img src="images/ring1.jpg" onclick = "doClick(3, 2)" id = '32'>&nbsp;</td> 
+<td><img src="images/jewel_box1.jpg" onclick = "doClick(3, 3)" id = '33'>&nbsp;</td> 
+</tr>
+</table> 
+</div>
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br />
+<a href="mailto:yourfirstname@yourlastname.com">
+yourfirstname@yourlastname.com</a></div>
+</div>
+</body></html>
+
+
+<!--if(top != -1 && (document.getElementById(top+''+col).src.indexOf("images/superhero.jpg") = -1))
+    {
+        var temp = document.getElementById(row+''+col).src;
+        document.getElementById(top+''+col).src = document.getElementById(row+''+col).src;
+        document.getElementById(row+''+col).src = temp;
+    }
+    else if(right != 4 && (document.getElementById(row+''+right).src.indexOf("images/superhero.jpg") = -1)
+    {
+        var temp = document.getElementById(row+''+col).src;
+        document.getElementById(row+''+right).src = document.getElementById(row+''+col).src;
+        document.getElementById(row+''+col).src = temp;
+    }
+    else if(bottom != 4 && (document.getElementById(bottom+''+col).src.indexOf("images/superhero.jpg") = -1)
+    {
+         var temp = document.getElementById(row+''+col).src;
+         document.getElementById(bottom+''+col).src = document.getElementById(row+''+col).src;
+         document.getElementById(row+''+col).src = temp;
+    }
+    else if (left != -1 && (document.getElementById(row+''+left).src.indexOf("images/superhero.jpg") = -1)
+    {
+         var temp = document.getElementById(row+''+col).src;
+         document.getElementById(row+''+left).src = document.getElementById(row+''+col).src;
+         document.getElementById(row+''+col) = temp;
+    }
+    else 
+    {alert("Illegal move.");} -->
